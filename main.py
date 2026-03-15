@@ -245,6 +245,213 @@ else:
 # test case for ide vcs
 # print("test case for ide vcs")
 
+# case 21 Write a Python Program to Find Armstrong Number in an Interval
+"""
+lower = int(input("Enter the lower limit of the interval: "))
+upper = int(input("Enter the upper limit of the interval: "))
+
+for num in range(lower, upper + 1):
+    order = len(str(num))
+    temp_num = num
+    sum = 0
+
+    while temp_num > 0:
+        digit = temp_num % 10
+        sum += digit ** order
+        temp_num //= 10
+
+    if num == sum:
+        print(num)
+"""
+
+# case 22 Write a Python Program to Find the Sum of Natural Numbers.
+"""
+limit = int(input("Enter the limit: "))
+sum = 0
+
+for i in range(1, limit + 1):
+    sum += i
+
+print("The sum of natural numbers up to", limit, "is:", sum)
+"""
+
+# case 23 Write a Python Program to Convert Decimal to Binary, Octal and Hexadecimal.
+"""
+dec_num = int(input('Enter a decimal number: '))
+print("The decimal value of", dec_num, "is:")
+print(bin(dec_num), "in binary.")
+print(oct(dec_num), "in octal.")
+print(hex(dec_num), "in hexadecimal.")
+"""
+
+# case 24 Write a Python Program To Find ASCII value of a character.
+"""
+char = str(input("Enter the character: "))
+print("The ASCII value of '" + char + "' is", ord(char))
+"""
+
+# case 25 Write a Python Program to Make a Simple Calculator with 4 basic mathematical operations.
+"""
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error: A number cannot be divided by zero!"
+    return x / y
+
+print("Select operation.")
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
+
+while True:
+    choice = input("Enter choice(1/2/3/4): ")
+    if choice in ('1', '2', '3', '4'):
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
+        if choice == '1':
+            print(num1, "+", num2, "=", add(num1, num2))
+
+        elif choice == '2':
+            print(num1, "-", num2, "=", subtract(num1, num2))
+
+        elif choice == '3':
+            print(num1, "*", num2, "=", multiply(num1, num2))
+
+        elif choice == '4':
+            print(num1, "/", num2, "=", divide(num1, num2))
+
+        next_calculation = input("Let's do next calculation? (yes/no):")
+        if next_calculation == "no":
+            break
+
+    else:
+        print("Invalid Input")
+"""
+
+# case 26 Write a Python Program to Display Fibonacci Sequence Using Recursion.
+"""
+def recur_fibo(n):
+    if n <= 1:
+        return n
+    else:
+        return (recur_fibo(n - 1) + recur_fibo(n - 2))
+
+nterms = int(input("Enter the number of terms (greater than 0): "))
+
+if nterms <= 0:
+    print("Plese enter a positive integer")
+
+else:
+    print("Fibonacci sequence:")
+    for i in range(nterms):
+        print(recur_fibo(i))
+"""
+
+# case 27 Write a Python Program to Find Factorial of Number Using Recursion.
+"""
+def recur_factorial(n):
+    if n == 1:
+        return n
+    else:
+        return n*recur_factorial(n-1)
+
+num = int(input("Enter the number: "))
+
+if num < 0:
+    print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+    print("The factorial of 0 is 1")
+else:
+    print("The factorial of", num, "is", recur_factorial(num))
+"""
+
+# case 28 Write a Python Program to calculate your Body Mass Index.
+"""
+def bodymassindex(height, weight):
+    return round((weight / height**2),2)
+
+h = float(input("Enter your height in meters: "))
+w = float(input("Enter your weight in kg: "))
+
+print("Welcome to the BMI calculator.")
+
+bmi = bodymassindex(h, w)
+print("Your BMI is: ", bmi)
+
+if bmi <= 18.5:
+    print("You are underweight.")
+elif 18.5 < bmi <= 24.9:
+    print("Your weight is normal.")
+elif 25 < bmi <= 29.29:
+    print("You are overweight.")
+else:
+    print("You are obese.")
+"""
+
+# case 29 Write a Python Program to calculate the natural logarithm of any number.
+"""
+import math
+
+num = float(input("Enter a number: "))
+
+if num <= 0:
+    print("Please enter a positive number.")
+
+else:
+    result = math.log(num)
+    print(f"The natural logarithm of {num} is: {result}")
+"""
+
+# case 30 Write a Python Program for cube sum of first n natural numbers?
+"""
+def cube_sum_of_natural_numbers(n):
+    if n <= 0:
+        return 0
+    else:
+        total = sum([i ** 3 for i in range(1, n + 1)])
+        return total
+
+n = int(input("Enter the value of n: "))
+
+if n <= 0:
+    print("Please enter a positive integer.")
+
+else:
+    result = cube_sum_of_natural_numbers(n)
+    print(f"The cube sum of the first {n} natural numbers is: {result}")
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
