@@ -434,6 +434,296 @@ else:
     print(f"The cube sum of the first {n} natural numbers is: {result}")
 """
 
+# case 31 Write a Python Program to find sum of array
+"""
+#  Finding Sum of Array Using sum()
+arr = [1,2,3]
+ans = sum(arr)
+print('Sum of the array is ', ans)
+
+# Function to find the sum of elements in an array
+def sum_of_array(arr):
+    total = 0
+
+    for element in arr:
+        total += element
+
+    return total
+
+array = [1, 2, 3]
+result = sum_of_array(array)
+print("Sum of the array:", result)
+"""
+
+# case 32 Write a Python Program to find largest element in an array.
+"""
+def find_largest_element(arr):
+    if not arr:
+        return "Array is empty"
+
+    largest_element = arr[0]
+
+    for element in arr:
+        if element > largest_element:
+            largest_element = element
+
+    return largest_element        
+
+
+my_array = [10, 20, 30, 99]
+result = find_largest_element(my_array)
+print(f"The largest element in the array is: {result}")
+"""
+
+# case 33 Write a Python Program for array rotation.
+"""
+def rotate_array(arr, d):
+    n = len(arr)
+
+    if d < 0 or d >= n:
+        return "Invalid rotation value"
+
+    # Create a new array to store the rotated elements.
+    rotated_arr = [0] * n
+
+    # Perform the rotation.
+    for i in range(n):
+        rotated_arr[i] = arr[(i + d) % n]
+
+    return rotated_arr
+
+#Input array
+arr = [1, 2, 3, 4, 5]
+
+# Number of positions to rotate
+d = 2
+
+# Call the rotate_array function
+result = rotate_array(arr, d)
+
+# Print the rotated array
+print("Original Array:", arr)
+print("Rotated Array:", result)
+"""
+
+# case 34 Write a Python Program to Split the array and add the first part to the end?
+"""
+def split_and_add(arr, k):
+    if k <= 0 or k >= len(arr):
+        return arr
+
+    # Split the array into two parts
+    first_part = arr[:k]
+    second_part = arr[k:]
+
+    # Add the first part to the end of the second part
+    result = second_part + first_part
+
+    return result
+
+
+arr = [1, 2, 3, 4, 5]
+k = 3
+
+result = split_and_add(arr, k)
+
+print("Original Array:", arr)
+print("Array after splitting and adding:", result)
+"""
+
+# case 35 Write a Python Program to check if given array is Monotonic.
+# A monotonic array is one that is entirely non-increasing or non-decreasing.
+"""
+def is_monotonic(arr):
+    increasing = decreasing = True
+
+    for i in range(1, len(arr)):
+        if arr[i] > arr[i - 1]:
+            decreasing = False
+        elif arr[i] < arr[i - 1]:
+            increasing = False
+
+    return increasing or decreasing        
+
+
+arr1 = [1, 2, 2, 3] # Monotonic (non-decreasing)
+arr2 = [3, 2, 1]    # Monotonic (non-increasing)
+arr3 = [1, 3, 2, 4] # Not monotonic
+
+print("arr1 is monotonic:", is_monotonic(arr1))
+print("arr2 is monotonic:", is_monotonic(arr2))
+print("arr3 is monotonic:", is_monotonic(arr3))
+"""
+
+# case 36 Write a Python Program to Add Two Matrices.
+"""
+# Function to add two matrices
+def add_matrices(mat1, mat2):
+        # Check if the matrices have the same dimensions
+        if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
+            return "Matrices must have the same dimensions for addition"
+
+        # Initialize an empty result matrix with the same dimensions
+        result = []
+
+        for i in range(len(mat1)):
+            row = []
+            for j in range(len(mat1[0])):
+                row.append(mat1[i][j] + mat2[i][j])
+            result.append(row)
+
+        return result
+
+# Input matrices
+matrix1 = [
+ [1, 2, 3],
+ [4, 5, 6],
+ [7, 8, 9]
+]
+
+matrix2 = [
+ [9, 8, 7],
+ [6, 5, 4],
+ [3, 2, 1]
+]
+
+# Call the add_matrices function
+result_matrix = add_matrices(matrix1, matrix2)
+
+# Display the result
+if isinstance(result_matrix, str):
+    print(result_matrix)
+else:
+    print("Sum of matrices:")
+    for row in result_matrix:
+        print(row)
+"""
+
+# case 37 Write a Python Program to Multiply Two Matrices.
+"""
+def multiply_matrices(mat1, mat2):
+    # Determine the dimensions of the input matrices
+    rows1 = len(mat1)
+    cols1 = len(mat1[0])
+    rows2 = len(mat2)
+    cols2 = len(mat2[0])
+
+    # Check if multiplication is possible
+    if cols1 != rows2:
+        return "Matrix multiplication is not possible."
+
+    # Initialize the result matrix with zeros
+    result = [[0 for _ in range(cols2)] for _ in range(rows1)]
+
+    # Perform matrix multiplication
+    for i in range(rows1):
+        for j in range(cols2):
+            for k in range(cols1):
+                result[i][j] += mat1[i][k] * mat2[k][j]
+
+    return result
+
+
+# Example matrices
+matrix1 = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
+matrix2 = [
+    [7, 8],
+    [9, 10],
+    [11, 12]
+]
+
+# Multiply the matrices
+result_matrix = multiply_matrices(matrix1, matrix2)
+
+# Display the result
+if isinstance(result_matrix, str):
+    print(result_matrix)
+else:
+    print("Result of matrix multiplication:")
+    for row in result_matrix:
+        print(row)
+"""
+
+# case 38 Write a Python Program to Transpose a Matrix.
+"""
+# Function to transpose a matrix
+def transpose_matrix(matrix):
+    rows, cols = len(matrix), len(matrix[0])
+
+    # Create an empty matrix to store the transposed data
+    result = [[0 for _ in range(rows)] for _ in range(cols)]
+
+    for i in range(rows):
+        for j in range(cols):
+            result[j][i] = matrix[i][j]
+
+    return result
+
+# Input matrix
+matrix = [
+ [1, 2, 3],
+ [4, 5, 6]
+]
+
+# Transpose the matrix
+transposed_matrix = transpose_matrix(matrix)
+
+# Print the transposed matrix
+for row in transposed_matrix:
+    print(row)
+"""
+
+# case 39 Write a Python Program to Sort Words in Alphabetic Order.
+"""
+my_str = input("Enter a string: ")
+
+# breakdown the string into a list of words
+words = [word.capitalize() for word in my_str.split()]
+
+# sort the list
+words.sort()
+
+# display the sorted words
+print("The sorted words are:")
+for word in words:
+    print(word)
+"""
+
+# case 40 Write a Python Program to Remove Punctuation From a String
+"""
+# define punctuation
+punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+
+# To take input from the user
+my_str = input("Enter a string: ")
+
+# remove punctuation from the string
+no_punct = ""
+for char in my_str:
+    if char not in punctuations:
+        no_punct += char
+
+# display the unpunctuated string
+print(no_punct)
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
