@@ -696,7 +696,7 @@ for word in words:
 # case 40 Write a Python Program to Remove Punctuation From a String
 """
 # define punctuation
-punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+punctuations = '''!()-[]{};:'"\\,<>./?@#$%^&*_~'''
 
 # To take input from the user
 my_str = input("Enter a string: ")
@@ -710,6 +710,206 @@ for char in my_str:
 # display the unpunctuated string
 print(no_punct)
 """
+
+# case 41 Write a Python program to check if the given number is a Disarium Number.
+"""
+# A Disarium number is a number that is equal to the sum of its digits each raised to the
+# power of its respective position. For example, 89 is a Disarium number because
+
+def is_disarium(number):
+    # Convert the number to a string to iterate over its digits
+    num_str = str(number)
+
+    digit_sum = sum(int(i) ** (index + 1) for index, i in enumerate(num_str))
+    # Check if the sum is equal to the original number
+
+    return digit_sum == number
+
+# Input a number from the user
+try:
+    num = int(input("Enter a number: "))
+    # Check if it's a Disarium number
+    if is_disarium(num):
+        print(f"{num} is a Disarium number.")
+    else:
+        print(f"{num} is not a Disarium number.")
+
+except ValueError:
+ print("Invalid input. Please enter a valid number.")
+"""
+
+# case 42 Write a Python program to print all disarium numbers between 1 to 100.
+"""
+def is_disarium(num):
+    num_str = str(num)
+    digit_sum = sum(int(i) ** (index + 1) for index, i in enumerate(num_str))
+    return num == digit_sum
+
+disarium_numbers = [num for num in range(1, 101) if is_disarium(num)]
+
+print("Disarium numbers between 1 and 100:")
+
+for num in disarium_numbers:
+    print(num, end=" | ")
+"""
+
+# case 43 Write a Python program to check if the given number is Happy Number.
+
+# Happy Number: A Happy Number is a positive integer that, when you repeatedly replace
+# the number by the sum of the squares of its digits and continue the process, eventually
+# reaches 1. If the process never reaches 1 but instead loops endlessly in a cycle, the number
+# is not a Happy Number.
+"""
+def is_happy_number(num):
+    seen = set()  # To store previously seen numbers
+
+    while num != 1 and num not in seen:
+        seen.add(num)
+        num = sum(int(i) ** 2 for i in str(num))
+
+    return num == 1
+
+
+# Test the function with a number
+num = int(input("Enter a number: "))
+
+if is_happy_number(num):
+    print(f"{num} is a Happy Number")
+else:
+    print(f"{num} is not a Happy Number")
+"""
+
+# case 44 Write a Python program to print all happy numbers between 1 and 100.
+"""
+def is_happy_number(num):
+    seen = set()
+
+    while num != 1 and num not in seen:
+        seen.add(num)
+        num = sum(int(i) ** 2 for i in str(num))
+
+    return num == 1
+
+happy_numbers = []
+
+for num in range(1, 101):
+    if is_happy_number(num):
+        happy_numbers.append(num)
+
+print("Happy Numbers between 1 and 100:")
+print(happy_numbers)
+"""
+
+# case 45 Write a Python program to determine whether the given number is a Harshad Number.
+"""
+def is_harshad_number(num):
+    # Calculate the sum of the digits of the number
+    digit_sum = sum(int(i) for i in str(num))
+
+    # Check if the number is divisible by the sum of its digits
+    return num % digit_sum == 0
+
+# Input a number
+num = int(input("Enter a number: "))
+
+# Check if it's a Harshad Number
+if is_harshad_number(num):
+    print(f"{num} is a Harshad Number.")
+
+else:
+    print(f"{num} is not a Harshad Number.")
+"""
+
+# case 46 Write a Python program to print all pronic numbers between 1 and 100.
+"""
+def is_pronic_number(num):
+    for n in range(1, int(num ** 0.5) + 1):
+        if n * (n + 1) == num:
+            return True
+    return False
+
+print("Pronic numbers between 1 and 100 are:")
+for i in range(1, 101):
+    if is_pronic_number(i):
+        print(i, end=" | ")
+"""
+
+# case 47 Write a Python program to find sum of elements in list
+"""
+# Sample list of numbers
+numbers = [10, 20, 30, 40, 50]
+
+# Initialize a variable to store the sum
+sum_of_numbers = 0
+
+# Iterate through the list and accumulate the sum
+for i in numbers:
+    sum_of_numbers += i
+
+# Print the sum
+print("Sum of elements in the list:", sum_of_numbers)
+"""
+
+# case 48 Write a Python program to Multiply all numbers in the list.
+"""
+# Sample list of numbers
+numbers = [10, 20, 30, 40, 50]
+
+# Initialize a variable to store the product
+product_of_numbers = 1
+
+# Iterate through the list and accumulate the product
+for i in numbers:
+    product_of_numbers *= i
+
+# Print the product
+print("Product of elements in the list:", product_of_numbers)
+"""
+
+# case 49 Write a Python program to find smallest number in a list.
+"""
+# Sample list of numbers
+numbers = [30, 10, -45, 5, 20]
+
+# Initialize a variable to store the minimum value
+minimum = numbers[0]
+
+for i in numbers:
+    if i < minimum:
+        minimum = i
+
+# Print the minimum value
+print("The smallest number in the list is:", minimum)
+"""
+
+# case 50 Write a Python program to find largest number in a list.
+"""
+# Sample list of numbers
+numbers = [30, 10, -45, 5, 20]
+
+# Initialize a variable to store the minimum value
+minimum = numbers[0]
+
+for i in numbers:
+    if i > minimum:
+        minimum = i
+
+# Print the minimum value
+print("The largest number in the list is:", minimum)
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
