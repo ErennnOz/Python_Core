@@ -898,6 +898,198 @@ for i in numbers:
 print("The largest number in the list is:", minimum)
 """
 
+# case 51 Write a Python program to find second largest number in a list.
+"""
+# Sample list of numbers
+numbers = [30, 10, 45, 5, 20]
+
+# Sort the list in descending order
+numbers.sort(reverse=True)
+
+# Check if there are at least two elements in the list
+if len(numbers) >= 2:
+    second_largest = numbers[1]
+    print("The second largest number in the list is:", second_largest)
+else:
+    print("The list does not contain a second largest number.")
+"""
+
+# case 52 Write a Python program to find N largest elements from a list
+"""
+# Sample list of numbers
+numbers = [30, 10, 45, 5, 20, 50, 15, 3, 345, 54, 67, 87, 98, 100, 34]
+
+def find_n_largest_elements(lst, n):
+    # Sort the list in descending order
+    sorted_lst = sorted(lst, reverse=True)
+
+    # Get the first N elements
+    largest_elements = sorted_lst[:n]
+
+    return largest_elements
+
+
+# Number of largest elements to find
+N = int(input("N = " ))
+
+# Find the N largest elements from the list
+result = find_n_largest_elements(numbers, N)
+
+# Print the N largest elements
+print(f"The {N} largest elements in the list are:", result)
+"""
+
+# case 53 Write a Python program to print even numbers in a list.
+"""
+# Sample list of numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Using a list comprehension to filter even numbers
+even_numbers = [num for num in numbers if num % 2 == 0]
+
+# Print the even numbers
+print("Even numbers in the list:", even_numbers)
+"""
+
+# case 54 Write a Python program to print odd numbers in a List.
+"""
+# Sample list of numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Using a list comprehension to filter even numbers
+even_numbers = [num for num in numbers if num % 2 != 0]
+
+# Print the even numbers
+print("Odd numbers in the list:", even_numbers)
+"""
+
+# case 55 Write a Python program to Remove empty List from List.
+"""
+# Sample list containing lists
+list_of_lists = [[1, 2, 3], [], [4, 5], [], [6, 7, 8], []]
+
+# Using a list comprehension to remove empty lists
+filtered_list = [i for i in list_of_lists if i]
+
+# Print the filtered list
+print("List after removing empty lists:", filtered_list)
+"""
+
+# case 56 Write a Python program to Cloning or Copying a list.
+"""
+# 1. Using Using the Slice Operator
+original_list = [1, 2, 3, 4, 5]
+cloned_list = original_list[:]
+print(cloned_list)
+
+# 2. Using the list() constructor
+original_list = [1, 2, 3, 4, 5]
+cloned_list = list(original_list)
+print(cloned_list)
+
+# # 3. Using List Comprehension
+original_list = [1, 2, 3, 4, 5]
+cloned_list = [item for item in original_list]
+print(cloned_list)
+"""
+
+# case 57 Write a Python program to Count occurrences of an element in a list
+"""
+def count_occurrences(l, element):
+    count = l.count(element)
+    return count
+
+# Example usage:
+my_list = [1, 2, 3, 4, 2, 5, 2, 3, 4, 6, 5]
+element_to_count = 2
+
+occurrences = count_occurrences(my_list, element_to_count)
+print(f"the element {element_to_count} appears {occurrences} times in the list")
+"""
+
+# case 58 Write a Python program to find words which are greater than given length k.
+"""
+def find_words(words, k):
+    # Create an empty list to store words greater than k
+    result = []
+    # Iterate through each word in the list
+    for i in words:
+        if len(i) > k:
+            result.append(i)
+
+    return result
+
+
+# Example usage
+word_list = ["apple", "banana", "cherry", "date", "elderberry", "dragonfruit"]
+k = 5
+long_words = find_words(word_list, k)
+
+print(f"Words longer than {k} characters: {long_words}")
+"""
+
+# case 59 Write a Python program for removing 𝑖-th character from a string.
+"""
+def remove_char(input_str, i):
+    # Check if i is a valid index
+    if i < 0 or i >= len(input_str):
+        print(f"Invalid index {i}. The string remains unchanged.")
+        return input_str
+    # Remove the i-th character using slicing
+    result_str = input_str[:i] + input_str[i + 1:]
+
+    return result_str
+
+# Input string
+input_str = "Hello, wWorld!"
+
+# Index of the character to remove
+i = 7
+# Remove the i-th character
+new_str = remove_char(input_str, i)
+
+print(f"Original String: {input_str}")
+print(f"String after removing {i}th character : {new_str}")
+"""
+
+# case 60 Write a Python program to split and join a string.
+"""
+# Split a string into a list of words
+input_str = "Python program to split and join a string"
+word_list = input_str.split() # By default, split on whitespace
+
+# Join the list of words into a string
+separator = " "
+output_str = separator.join(word_list)
+
+# Print the results
+print("Original String:", input_str)
+print("List of split Words:", word_list)
+print("Joined String:", output_str)
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
