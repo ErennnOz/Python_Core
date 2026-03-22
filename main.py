@@ -1068,6 +1068,139 @@ print("List of split Words:", word_list)
 print("Joined String:", output_str)
 """
 
+# case 61 Write a Python program to check if a given string is binary string or not
+"""
+def is_binary_str(input_str):
+    for i in input_str:
+        if i not in '01':
+            return False
+    return True
+
+
+# Input string to check
+input_str = "1001110"
+
+# Check if the input string is a binary string
+if is_binary_str(input_str):
+    print(f"'{input_str}' is a binary string.")
+else:
+    print(f"'{input_str}' is not a binary string.")
+"""
+# case 62 Write a Python program to find uncommon words from two Strings.
+"""
+def uncommon_words(str1, str2):
+    words1 = set(str1.split())
+    words2 = set(str2.split())
+
+    # Find uncommon words by taking the set difference
+    uncommon_words_set = words1.symmetric_difference(words2)
+
+    # Convert the set of uncommon words back to a list
+    uncommon_words_list = list(uncommon_words_set)
+
+    return uncommon_words_list
+
+
+# Input two strings
+string1 = "This is the first string"
+string2 = "This is the second string"
+
+# Find uncommon words between the two strings
+uncommon = uncommon_words(string1, string2)
+
+# Print the uncommon words
+print("Uncommon words:", uncommon)
+"""
+
+# case 63 Write a Python program to find all duplicate characters in string
+"""
+def find_duplicates(input_str):
+    # Create an empty dictionary to store character counts
+    char_count = {}
+
+    # Initialize a list to store duplicate characters
+    duplicates = []
+
+    # Iterate through each character in the input string
+    for i in input_str:
+        if i in char_count:
+            char_count[i] += 1
+        else:
+            char_count[i] = 1
+
+    # Iterate through the dictionary and add characters with count > 1
+    for i, count in char_count.items():
+        if count > 1:
+            duplicates.append(i)
+
+    return duplicates
+
+# Input a string
+input_string = "EREN ÖZDEMİR"
+
+# Find duplicate characters in the string
+duplicate_chars = find_duplicates(input_string)
+
+# Print the list of duplicate characters
+print("Duplicate characters:", duplicate_chars)
+"""
+
+# case 64 Write a Python Program to check if a string contains any special character.
+"""
+import re
+
+def check_special_char(in_str):
+    # Define a regular expression pattern to match special characters
+    pattern = r'[!@#$%^&*()_+{}[\]:;<>,.?~\\/\'"-=]'
+
+    # Use re.search to find a match in the input string
+    if re.search(pattern, in_str):
+        return True
+    else:
+        return False
+
+
+# Input a string
+input_string = str(input("Enter a string: "))
+
+# Check if the string contains any special characters
+contains_special = check_special_char(input_string)
+
+# Print the result
+if contains_special:
+    print("The string contains special characters.")
+else:
+    print("The string does not contain special characters.")
+"""
+
+# case 65 Write a Python program to Extract Unique dictionary values.
+"""
+# Sample dictionary
+my_dict = {
+ 'a': 10,
+ 'b': 20,
+ 'c': 10,
+ 'd': 30,
+ 'e': 20
+}
+
+# Initialize an empty set to store unique values
+uni_val = set()
+
+# Iterate through the values of the dictionary
+for i in my_dict.values():
+    # Add each value to the set
+    uni_val.add(i)
+
+# Convert the set of unique values back to a list (if needed)
+unique_values_list = list(uni_val)
+
+# Print the unique value
+print("Unique values in the dictionary:", unique_values_list)
+"""
+
+
+
 
 
 
