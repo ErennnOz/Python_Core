@@ -1199,10 +1199,101 @@ unique_values_list = list(uni_val)
 print("Unique values in the dictionary:", unique_values_list)
 """
 
+# case 66 Write a Python program to find the sum of all items in a dictionary.
+"""
+# Sample dictionary
+my_dict = {
+ 'a': 10,
+ 'b': 20,
+ 'c': 30,
+ 'd': 40,
+ 'e': 50
+}
 
+# Initialize a variable to store the sum
+total_sum = 0
 
+# Iterate through the values of the dictionary and add them to the total
+for i in my_dict.values():
+    total_sum += i
 
+# Print the sum of all items in the dictionary
+print("Sum of all items in the dictionary:", total_sum)
+"""
 
+# case 67 Write a Python program to Merging two Dictionaries.
+"""
+# 1. Using the update() method:
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+
+dict1.update(dict2)
+
+# The merged dictionary is now in dict1
+print("Merged Dictionary (using update()):", dict1)
+
+# 2. Using dictionary unpacking
+
+# Merge dict2 into dict1 using dictionary unpacking
+merged_dict = {**dict1, **dict2}
+
+# The merged dictionary is now in merged_dict
+print("Merged Dictionary (using dictionary unpacking):", merged_dict)
+"""
+
+# case 68 Write a Python program to convert key-values list to flat dictionary
+"""
+key_values_list = [('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+
+# Initialize an empty dictionary
+flat_dict = {}
+
+# Iterate through the list and add key-value pairs to the dictionary
+for key, value in key_values_list:
+    flat_dict[key] = value
+
+# Print the resulting flat dictionary
+print("Flat Dictionary:", flat_dict)
+"""
+
+# case 69 Write a Python program to insertion at the beginning in OrderedDict.
+"""
+from collections import OrderedDict
+
+# Create an OrderedDict
+ordered_dict = OrderedDict([('b', 2), ('c', 3), ('d', 4)])
+
+# Item to insert at the beginning
+new_item = ('a', 1)
+
+# Create a new OrderedDict with the new item as the first element
+new_ordered_dict = OrderedDict([new_item])
+
+# Merge the new OrderedDict with the original OrderedDict
+new_ordered_dict.update(ordered_dict)
+
+# Print the updated OrderedDict
+print("Updated OrderedDict:", new_ordered_dict)
+"""
+
+# case 70 Write a Python program to check order of character in string using OrderedDict().
+"""
+from collections import OrderedDict
+
+def check_order(string, reference):
+    string_dict = OrderedDict.fromkeys(string)
+    reference_dict = OrderedDict.fromkeys(reference)
+
+    return string_dict == reference_dict
+
+input_string = "hello world"
+reference_string = "helo wrd"
+
+if check_order(input_string, reference_string):
+    print("The order of characters in the input string matches")
+else:
+    print("The order of characters in the input string does not match")
+"""
 
 
 
