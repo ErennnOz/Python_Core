@@ -1295,8 +1295,123 @@ else:
     print("The order of characters in the input string does not match")
 """
 
+# case 71 Write a Python program to sort Python Dictionaries by Key or Value
+"""
+# Sort by Keys:
+sample_dict = {'apple': 3, 'banana': 1, 'cherry': 2, 'date': 4}
+
+sorted_dict_by_keys = dict(sorted(sample_dict.items()))
+
+print("Sorted by keys:")
+
+for key, value in sorted_dict_by_keys.items():
+    print(f"{key}: {value}")
+
+# Sort by values
+sorted_dict_by_values = dict(sorted(sample_dict.items(), key=lambda item: item[1]))
+
+print("Sorted by values:")
+for key, value in sorted_dict_by_values.items():
+    print(f"{key}: {value}")
+"""
+# case 72 Write a program that accepts a comma separated sequence of words as input and
+# prints the words in a comma-separated sequence after sorting them alphabetically.
+"""
+# Accept input from the user
+input_sequence = input("Enter a comma-separated sequence of words: ")
+
+# Split the input into a list of words
+words = input_sequence.split(',')
+
+# Sort the words alphabetically
+sorted_words = sorted(words)
+
+# Join the sorted words into a comma-separated sequence
+sorted_sequence = ','.join(sorted_words)
+
+# Print the sorted sequence
+print("Sorted words:", sorted_sequence)
+"""
+
+# case 73 Write a program that accepts a sequence of whitespace separated words as input
+# and prints the words after removing all duplicate words and sorting them
+# alphanumerically.
+"""
+# Accept input from the user
+input_sequence = input("Enter a sequence of whitespace-separated words: ")
+
+# Split the input into words and convert it into a set to remove duplicate
+words = set(input_sequence.split())
+
+# Sort the unique words alphanumerically
+sorted_words = sorted(words)
+
+# Join the sorted words into a string with whitespace separation
+result = ' '.join(sorted_words)
+
+# Print the result
+print("Result:", result)
+"""
+
+# case 74 Write a program that accepts a sentence and calculate the number of letters and
+# digits. Suppose the following input is supplied to the program:
+"""
+# Accept input from the user
+sentence = input("Enter a sentence: ")
+
+# Initialize counters for letters and digits
+letter_count = 0
+digit_count = 0
+
+# Iterate through each character in the sentence
+for char in sentence:
+    if char.isalpha():
+        letter_count += 1
+    if char.isdigit():
+        digit_count += 1
+
+# Print the results
+print("LETTERS", letter_count)
+print("DIGITS", digit_count)
+"""
+
+# case 75 A website requires the users to input username and password to register. Write a
+# program to check the validity of password input by users. Following are the criteria
+# for checking the password:
+"""
+import re
+
+def is_valid_password(password):
+    # 1. Şifre uzunluğu 6 ile 12 karakter arasında olmalı
+    if 6 <= len(password) <= 12:
+        # 2. Regex ile kriterleri kontrol et:
+        # (?=.*[a-z]) -> En az bir küçük harf
+        # (?=.*[A-Z]) -> En az bir büyük harf
+        # (?=.*[0-9]) -> En az bir rakam
+        # (?=.*[$#@]) -> En az bir özel karakter ($ veya # veya @)
+        # .* -> Tüm bu şartlardan sonra karakterlerin devam edebileceğini belirtir
+        pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$#@]).*$"
+
+        if re.match(pattern, password):
+            return True
+    return False
 
 
+# Kullanıcıdan virgülle ayrılmış şifreleri al
+user_input = input("Şifreleri virgülle ayırarak girin: ")
+passwords = user_input.split(',')
+
+valid_passwords = []
+
+# Her bir şifreyi kontrol et (strip() ile gereksiz boşlukları temizliyoruz)
+for psw in passwords:
+    clean_psw = psw.strip()
+    if is_valid_password(clean_psw):
+        valid_passwords.append(clean_psw)
+
+# Geçerli şifreleri virgülle birleştirerek yazdır
+print(",".join(valid_passwords))
+"""
 
 
 
