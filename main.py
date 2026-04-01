@@ -1412,9 +1412,123 @@ for psw in passwords:
 # Geçerli şifreleri virgülle birleştirerek yazdır
 print(",".join(valid_passwords))
 """
+# case 76 Define a class with a generator which can iterate the numbers, which are divisible by
+# 7, between a given range 0 and n.
+"""
+class DivisibleBySeven:
+    def __init__(self, n):
+        self.n = n
 
+    def generate_divisible_by_seven(self):
+        # 0'dan n'e kadar 7'şer atlayarak gitmek daha verimlidir
+        for num in range(0, self.n + 1, 7):
+            yield num
 
+try:
+    n = int(input("Lütfen bir sayı girin: "))
+    # Class'ı başlat ve generator'ı al
+    generator = DivisibleBySeven(n).generate_divisible_by_seven()
 
+    print(f"0 ile {n} arasındaki 7'ye bölünen sayılar:")
+    for num in generator:
+        print(num)
+except ValueError:
+    print("Lütfen sadece tam sayı giriniz.")
+"""
+
+# case 77 Write a program to compute the frequency of the words from the input. The output
+# should output after sorting the key alphanumerically. Suppose the following input is
+# supplied to the program:
+"""
+input_sentence = input("Enter a sentence: ")
+
+# Split the sentence into words
+words = input_sentence.split()
+
+# Create a dictionary to store word frequencies
+word_freq = {}
+
+# Count word frequencies
+for word in words:
+    # Remove punctuation (., ?) from the word
+    word = word.strip('.,?')
+    # Convert to lowercase to ensure 'Apple' and 'apple' are counted as the same word
+    word = word.lower()
+    # Update the word frequency in the dictionary
+    if word in word_freq:
+        word_freq[word] += 1
+    else:
+        word_freq[word] = 1
+
+# Sort the words alphanumerically
+sorted_words = sorted(word_freq.items())
+
+# Print the word frequencies
+for word, frequency in sorted_words:
+    print(f"{word}:{frequency}")
+"""
+
+# case 78 Define a class Person and its two child classes: Male and Female. All classes have a
+# method "getGender" which can print "Male" for Male class and "Female" for Female
+# class.
+"""
+class Person:
+    def getGender(self):
+         return "Unknown"
+
+class Male(Person):
+    def getGender(self):
+        return "Male"
+
+class Female(Person):
+    def getGender(self):
+        return "Female"
+
+person = Person()
+male = Male()
+female = Female()
+
+print(person.getGender())
+print(male.getGender())
+print(female.getGender())
+"""
+
+# case 79 Please write a program to generate all sentences where subject is in ["I", "You"] and
+# verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
+"""
+subjects = ["I", "You"]
+verbs = ["Play", "Love"]
+objects = ["Hockey", "Football"]
+
+sentences = []
+
+for sub in subjects:
+    for vrb in verbs:
+        for obj in objects:
+            sentence = f"{sub} {vrb} {obj}."
+            sentences.append(sentence)
+
+for sentence in sentences:
+    print(sentence)
+"""
+
+# case 80 Please write a program to compress and decompress the string "hello world!hello
+# world!hello world!hello world!".
+"""
+import zlib
+
+string = "hello world!hello world!hello world!hello world!"
+
+# Compress the string
+compressed_string = zlib.compress(string.encode())
+
+# Decompress the string
+decompressed_string = zlib.decompress(compressed_string).decode()
+
+print("Original String:", string)
+print("Compressed String:", compressed_string)
+print("Decompressed String:", decompressed_string)
+"""
 
 
 
