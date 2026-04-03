@@ -1530,13 +1530,114 @@ print("Compressed String:", compressed_string)
 print("Decompressed String:", decompressed_string)
 """
 
+# case 81 Please write a binary search function which searches an item in a sorted list. The
+# function should return the index of element to be searched in the list.
+"""
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid  # Element found, return its index
+        elif arr[mid] < target:
+            left = mid + 1 # Target is in the right half
+        else:
+            right = mid - 1 # Target is in the left half
+
+    return -1 # Element not found in the list
 
 
+# Example usage:
+sorted_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+target_element = 4
+
+result = binary_search(sorted_list, target_element)
+
+if result != -1:
+    print(f"Element {target_element} found at index {result}")
+else:
+    print(f"Element {target_element} not found in the list")
+"""
+# case 82 Please write a program using generator to print the numbers which can be divisible
+# by 5 and 7 between 0 and n in comma separated form while n is input by console.
+"""
+def divisible_by_5_and_7(n):
+    for num in range(n + 1):
+        if num % 5 == 0 and num % 7 == 0:
+            yield num
+
+try:
+    n = int(input("Enter a value for n: "))
+    result = divisible_by_5_and_7(n)
+    print(','.join(map(str, result)))
+except ValueError:
+    print("Invalid input. Please enter a valid integer for n.")
+"""
+# case 83 Please write a program using generator to print the even numbers between 0 and n in
+# comma separated form while n is input by console.
+"""
+def even_numbers(n):
+    for num in range(n + 1):
+        if num % 2 == 0:
+            yield num
 
 
+try:
+    n = int(input("Enter a value for n: "))
+    result = even_numbers(n)
+    print(','.join(map(str, result)))
+except ValueError:
+    print("Invalid input. Please enter a valid integer for n.")
+"""
 
+# case 84 please write program to print the user name of a given email address.
+"""
+def extract_username(email):
+    # Split the email address at '@' to separate the username and domain
+    parts = email.split('@')
 
+    # Check if the email address has the expected format
+    if len(parts) == 2:
+        return parts[0] # The username is the first part
+    else:
+        return "Invalid email format"
 
+try:
+    email = input("Enter an email address: ")
+    username = extract_username(email)
+    print(username)
+except ValueError:
+    print("Invalid input. Please enter a valid email address.")
+"""
+
+# case 85 Define a class named Shape and its subclass Square. The Square class has an init
+# function which takes a length as argument. Both classes have an area function which
+# can print the area of the shape where Shape's area is 0 by default.
+"""
+class Shape:
+    def __init__(self):
+        pass # Default constructor, no need to initialize anything
+
+    def area(self):
+        return 0 # Shape's area is 0 by default
+
+class Square(Shape):
+    def __init__(self, length):
+        super().__init__()
+        self.length = length # Call the constructor of the parent class
+
+    def area(self):
+        return self.length ** 2 # Calculate the area of the square
+
+# Create instances of the classes
+shape = Shape()
+square = Square(float(input("Enter the shape of the square: ")))
+
+# Calculate and print the areas
+print("Shape's area by default:", shape.area())
+print("Area of the square:", square.area())
+"""
 
 
 
