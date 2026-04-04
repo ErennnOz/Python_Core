@@ -1591,7 +1591,7 @@ except ValueError:
     print("Invalid input. Please enter a valid integer for n.")
 """
 
-# case 84 please write program to print the user name of a given email address.
+# case 84 please write program to print the username of a given email address.
 """
 def extract_username(email):
     # Split the email address at '@' to separate the username and domain
@@ -1639,13 +1639,84 @@ print("Shape's area by default:", shape.area())
 print("Area of the square:", square.area())
 """
 
+# case 86 Write a function that stutters a word as if someone is struggling to read it. The first
+# two letters are repeated twice with an ellipsis ... and space after each, and then the
+# word is pronounced with a question mark ?.
+"""
+def stutter(word):
+    if len(word) < 2:
+        return "Word must be at least two characters long."
+    stuttered_word = f"{word[:2]}... {word[:2]}... {word}?"
+    return stuttered_word
+
+# Test cases
+print(stutter("incredible"))
+print(stutter("enthusiastic"))
+print(stutter("outstanding"))
+"""
+
+# case 87 Create a function that takes an angle in radians and returns the corresponding angle
+# in degrees rounded to one decimal place.
+"""
+import math
+
+def radians_to_degrees(radians):
+    degrees = radians * (180 / math.pi)
+    return round(degrees, 1)
+
+# Test cases
+print(radians_to_degrees(1))
+print(radians_to_degrees(20))
+print(radians_to_degrees(50))
+"""
+
+# case 88 In this challenge, establish if a given integer num is a Curzon number. If 1 plus 2
+# elevated to num is exactly divisible by 1 plus 2 multiplied by num, then num is a
+# Curzon number.
+# Given a non-negative integer num, implement a function that returns True if num is a
+# Curzon number, or False otherwise.
+"""
+def is_curzon(num):
+    numerator = 2 ** num + 1
+    denominator = 2 * num + 1
+    return numerator % denominator == 0
+
+# Test cases
+print(is_curzon(5))
+print(is_curzon(10))
+print(is_curzon(14))
+"""
+
+# case 89 Given the side length x find the area of a hexagon.
+"""
+import math
+
+def area_of_hexagon(x):
+    area = (3 * math.sqrt(3) * x ** 2) / 2
+    return round(area, 1)
 
 
+#Example usage:
+print(area_of_hexagon(1))
+print(area_of_hexagon(2))
+print(area_of_hexagon(3))
+"""
+
+# case 90 This function converts a base-10 (decimal) number, given as a string, into its base-2 (binary) representation.
+"""
+def binary(decimal):
+    binary_str = ""
+    while decimal > 0:
+        remainder = decimal % 2
+        binary_str += str(remainder) + binary_str
+        decimal = decimal // 2
+    return binary_str if binary_str else "0"
 
 
-
-
-
+print(binary(1))
+print(binary(5))
+print(binary(10))
+"""
 
 
 
