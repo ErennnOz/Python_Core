@@ -1718,19 +1718,480 @@ print(binary(5))
 print(binary(10))
 """
 
+# case 91 Create a function that takes three arguments a, b, c and returns the sum of the
+# numbers that are evenly divided by c from the range a, b inclusive.
+"""
+def evenly_divisible(a, b, c):
+    total = 0
+    for num in range(a, b + 1):
+        if num % c == 0:
+            total += num
+    return total
+
+print(evenly_divisible(1, 10, 20))
+print(evenly_divisible(1, 10, 2))
+print(evenly_divisible(1, 10, 3))
+"""
+
+# case 92 Create a function that returns True if a given inequality expression is correct and
+# False otherwise.
+"""
+def correct_signs(expression):
+    try:
+        return eval(expression)
+    except:
+        return False
+
+print(correct_signs("3 < 7 < 11"))
+print(correct_signs("13 > 44 > 33 < 1"))
+print(correct_signs("1 < 2 < 6 < 9 > 3"))
+"""
+
+# case 93 Create a function that replaces all the vowels in a string with a specified character.
+"""
+def replace_vowels(string, char):
+    vowels = "AEIOUaeiou"  # List of vowels to be replaced
+    for vowel in vowels:
+        string = string.replace(vowel, char)
+    return string
+
+print(replace_vowels("the aardvark", "#"))
+print(replace_vowels("minnie mouse", "?"))
+print(replace_vowels("shakespeare", "*"))
+"""
+
+# case 94 Write a function that calculates the factorial of a number recursively.
+"""
+def factorial(n):
+    if n == 0:
+        return 1  # Base case: factorial of 0 is 1
+    else:
+        return n * factorial(n - 1)  # Recursive case: n! = n * (n-1)!
+
+print(factorial(5))
+print(factorial(3))
+print(factorial(1))
+print(factorial(0))
+"""
+
+# case 95 Hamming distance is the number of characters that differ between two strings
+"""
+def hamming_distance(str1, str2):
+    # Check if the strings have the same length
+    if len(str1) != len(str2):
+        raise ValueError("Input strings must have the same length")
+    # Initialize a counter to keep track of differences
+    distance = 0
+    # Iterate through the characters of both strings
+    for i in range(len(str1)):
+        if str1[i] != str2[i]:
+            distance += 1 # Increment the counter for differences
+
+    return distance
+
+print(hamming_distance("abcde", "bcdef"))
+print(hamming_distance("abcde", "abcde"))
+print(hamming_distance("strong", "strung"))
+"""
+
+# case 96 Create a function that takes a list of non-negative integers and strings and return a
+# new list without the strings.
+"""
+def filter_list(lst):
+    # Initialize an empty list to store non-string elements
+    result = []
+
+    # Iterate through the elements in the input list
+    for element in lst:
+        # Check if the element is a non-negative integer (not a string)
+        if isinstance(element, int) and element >= 0:
+            result.append(element)
+
+    return result
+
+print(filter_list([1, 2, "a", "b"]))
+print(filter_list([1, "a", "b", 0, 15]))
+print(filter_list([1, 2, "aasf", "1", "123", 123]))
+"""
+
+# case 97 The "Reverser" takes a string as input and returns that string in reverse order, with
+# the opposite case.
+"""
+def reverse(input_str):
+    # Reverse the string and swap the case of characters
+    reversed_str = input_str[::-1].swapcase()
+    return reversed_str
+
+print(reverse("Hello World"))
+print(reverse("ReVeRsE"))
+print(reverse("Radar"))
+"""
+
+# case 98 Write a function that moves all elements of one type to the end of the list.
+"""
+def move_to_end(lst, element):
+    # Initialize a count for the specified element
+    count = lst.count(element)
+
+    # Remove all occurrences of the element from the list
+    lst = [x for x in lst if x != element]
+
+    # Append the element to the end of the list count times
+    lst.extend([element] * count)
+
+    return lst
+
+print(move_to_end([1, 3, 2, 4, 4, 1], 1))
+print(move_to_end([7, 8, 9, 1, 2, 3, 4], 9))
+print(move_to_end(["a", "a", "a", "b"], "a"))
+"""
+
+# case 99 Create a function that takes a string and returns a string in which each character is
+# repeated once.
+"""
+def double_char(input_str):
+    doubled_str = ""
+    for char in input_str:
+        doubled_str += char * 2
+
+    return doubled_str
+
+print(double_char("String"))
+print(double_char("Hello World!"))
+print(double_char("1234!_ "))
+"""
+
+# case 100 Create a function that reverses a boolean value and returns the string "boolean
+# expected" if another variable type is given.
+"""
+def reverse(value):
+    if isinstance(value, bool):
+        return not value
+    else:
+        return "boolean expected"
+
+print(reverse(True))
+print(reverse(False))
+print(reverse(0))
+print(reverse(None))
+"""
+
+# case 101 Create a function that returns the thickness (in meters) of a piece of paper after
+# folding it n number of times. The paper starts off with a thickness of 0.5mm.
+"""
+def num_layers(n):
+    initial_thickness_mm = 0.5  # Initial thickness in millimeters
+    final_thickness_mm = initial_thickness_mm * (2 ** n)
+    final_thickness_m = final_thickness_mm / 1000
+    return f"{final_thickness_m:.3f}m"
+
+print(num_layers(1))
+print(num_layers(4))
+print(num_layers(21))
+"""
+
+# case 102 Create a function that takes a single string as argument and returns an ordered list
+# containing the indices of all capital letters in the string.
+"""
+def index_of_caps(word):
+    # Use list comprehension to find indices of capital letters
+    return [i for i, char in enumerate(word) if char.isupper()]
+
+print(index_of_caps("eDaBiT"))
+print(index_of_caps("eQuINoX"))
+print(index_of_caps("determine"))
+print(index_of_caps("STRIKE"))
+print(index_of_caps("sUn"))
+"""
+
+# case 103 Using list comprehensions, create a function that finds all even numbers from 1 to
+# the given number.
+"""
+def find_even_nums(num):
+    # Use a list comprehension to generate even numbers from 1 to num
+    return [x for x in range(1, num + 1) if x % 2 == 0]
+
+print(find_even_nums(8))
+print(find_even_nums(4))
+print(find_even_nums(2))
+"""
+
+# case 104 Create a function that takes a list of strings and integers, and filters out the list so
+# that it returns a list of integers only.
+"""
+def filter_list(lst):
+    # Use a list comprehension to filter out integers
+    return [x for x in lst if isinstance(x, int)]
+
+print(filter_list([1, 2, 3, "a", "b", 4]))
+print(filter_list(["A", 0, "Edabit", 1729, "Python", 1729]))
+print(filter_list(["Nothing", "here"]))
+"""
+
+# case 105 Given a list of numbers, create a function which returns the list but with each
+# element's index in the list added to itself
+"""
+def add_indexes(lst):
+    # Use list comprehension to add index to each element
+    return [i + val for i, val in enumerate(lst)]
+
+print(add_indexes([0, 0, 0, 0, 0]))
+print(add_indexes([1, 2, 3, 4, 5]))
+print(add_indexes([5, 4, 3, 2, 1]))
+"""
+
+# case 106 Create a function that takes the height and radius of a cone as arguments and returns
+# the volume of the cone rounded to the nearest hundredth.
+"""
+import math
+
+def cone_volume(height, radius):
+    if radius == 0:
+        return 0
+    volume = (1 / 3) * math.pi * (radius ** 2) * height
+    return round(volume, 2)
+
+print(cone_volume(3, 2))
+print(cone_volume(15, 6))
+print(cone_volume(18, 0))
+"""
+
+# case 107 Create a function that takes a list of numbers between 1 and 10 (excluding one
+# number) and returns the missing number.
+"""
+def missing_num(lst):
+    total_sum = sum(range(1, 11)) # Sum of numbers from 1 to 10
+    given_sum = sum(lst) # Sum of the given list of numbers
+    missing = total_sum - given_sum
+    return missing
+
+print(missing_num([1, 2, 3, 4, 6, 7, 8, 9, 10]))
+print(missing_num([7, 2, 3, 6, 5, 9, 1, 4, 8]))
+print(missing_num([10, 5, 1, 2, 4, 6, 8, 3, 9]))
+"""
+
+# case 108 Write a function that takes a list and a number as arguments. Add the number to the
+# end of the list, then remove the first element of the list. The function should then
+# return the updated list.
+"""
+def next_in_line(lst, num):
+    if lst:
+        lst.pop(0)  # Remove the first element
+        lst.append(num) # Add the number to the end
+        return lst
+    else:
+        return "No list has been selected"
+
+print(next_in_line([5, 6, 7, 8, 9], 1) )
+print(next_in_line([7, 6, 3, 23, 17], 10))
+print(next_in_line([1, 10, 20, 42 ], 6))
+print(next_in_line([], 6))
+"""
+
+# case 109 Create the function that takes a list of dictionaries and returns the sum of people's
+# budgets.
+"""
+def get_budgets(lst):
+    total_budget = sum(person['budget'] for person in lst)
+    return total_budget
+
+# Test cases
+budgets1 = [
+    {'name': 'John', 'age': 21, 'budget': 23000},
+    {'name': 'Steve', 'age': 32, 'budget': 40000},
+    {'name': 'Martin', 'age': 16, 'budget': 2700}
+]
+
+budgets2 = [
+    {'name': 'John', 'age': 21, 'budget': 29000},
+    {'name': 'Steve', 'age': 32, 'budget': 32000},
+    {'name': 'Martin', 'age': 16, 'budget': 1600}
+]
+
+print(get_budgets(budgets1))
+print(get_budgets(budgets2))
+"""
+
+# case 110 Create a function that takes a string and returns a string with its letters in
+# alphabetical order.
+"""
+def alphabet_soup(txt):
+    return ''.join(sorted(txt))
+
+print(alphabet_soup("hello"))
+print(alphabet_soup("edabit"))
+print(alphabet_soup("hacker"))
+print(alphabet_soup("geek"))
+print(alphabet_soup("javascript"))
+"""
+
+# case 111 Write a function that takes a list of elements and returns only the integers
+"""
+def return_only_integer(lst):
+    # Use list comprehension to filter out integers
+    return [x for x in lst if isinstance(x, int) and not isinstance(x, bool)]
 
 
+print(return_only_integer([9, 2, "space", "car", "lion", 16]))
+print(return_only_integer(["hello", 81, "basketball", 123, "fox"]))
+print(return_only_integer([10, "121", 56, 20, "car", 3, "lion"]))
+print(return_only_integer(["String", True, 3.3, 1]))
+"""
+
+# case 112 Create a function that takes three parameters where:
+# - x is the start of the range (inclusive).
+# - y is the end of the range (inclusive).
+# - n is the divisor to be checked against.
+# Return an ordered list with numbers in the range that are divisible by the third
+# parameter n.
+"""
+def list_operation(x, y, n):
+    # Use list comprehension to generate the list of numbers divisible
+    return [num for num in range(x, y + 1) if num % n == 0]
+
+print(list_operation(1, 10, 3))
+print(list_operation(7, 9, 2))
+print(list_operation(15, 20, 7))
+"""
+
+# case 113 Create a function that takes in two lists and returns True if the second list follows the
+# first list by one element, and False otherwise. In other words, determine if the second
+# list is the first list shifted to the right by 1.
+"""
+def simon_says(list1, list2):
+    return list1[:-1] == list2[1:]
+
+print(simon_says([1, 2], [5, 1]))
+print(simon_says([1, 2], [5, 5]))
+print(simon_says([1, 2, 3, 4, 5], [0, 1, 2, 3, 4]))
+print(simon_says([1, 2, 3, 4, 5], [5, 5, 1, 2, 3]))
+"""
+
+# case 114 An isogram is a word that has no duplicate letters. Create a function that takes a
+# string and returns either True or False depending on whether or not it's an "isogram".
+"""
+def is_isogram(word):
+    word = word.lower()
+
+    # Create a set to store unique letters in the word
+    unique_letters = set()
+
+    for letter in word:
+        # If the letter is already in the set, it's not an isogram
+        if letter in unique_letters:
+            return False
+        unique_letters.add(letter)
+
+    return True
+
+print(is_isogram("Algorism"))
+print(is_isogram("PasSword"))
+print(is_isogram("Consecutive"))
+"""
+
+# case 115 Create a function that takes a string and returns True or False, depending on whether
+# the characters are in order or not.
+"""
+def is_in_order(s):
+    return s == ''.join(sorted(s))
+
+print(is_in_order("abc"))
+print(is_in_order("edabit"))
+print(is_in_order("123"))
+print(is_in_order("xyzz"))
+"""
 
 
+# case 116 Create a function that takes a number as an argument and returns True or False
+# depending on whether the number is symmetrical or not. A number is symmetrical
+# when it is the same as its reverse.
+"""
+def is_symmetrical(num):
+    # Convert the number to a string
+    num_str = str(num)
+
+    # Check if the string is equal to its reverse
+    return num_str == num_str[::-1]
+
+print(is_symmetrical(7227))
+print(is_symmetrical(12567))
+print(is_symmetrical(44444444))
+print(is_symmetrical(44444444))
+print(is_symmetrical(1112111))
+"""
+
+# case 117 A group of friends have decided to start a secret society. The name will be the first
+# letter of each of their names, sorted in alphabetical order. Create a function that takes
+# in a list of names and returns the name of the secret society.
+"""
+def society_name(names):
+    secret_name = ''.join(sorted([name[0] for name in names]))
+    return secret_name
 
 
+print(society_name(["Adam", "Sarah", "Malcolm"]))
+print(society_name(["Harry", "Newt", "Luna", "Cho"]))
+print(society_name(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"]))
+"""
 
+# case 118 Given a string of numbers separated by a comma and space, return the product of
+# the numbers.
+"""
+def multiply_nums(nums_str):
+    # Split the input string by comma and space, then convert to integer
+    nums = [int(num) for num in nums_str.split(", ")]
 
+    # Initialize the result with 1
+    result = 1
 
+    # Multiply all the numbers together
+    for num in nums:
+        result *= num
 
+    return result
 
+print(multiply_nums("2, 3"))
+print(multiply_nums("1, 2, 3, 4"))
+print(multiply_nums("54, 75, 453, 0"))
+print(multiply_nums("10, -2"))
+"""
 
+# case 119 Create a function that squares every digit of a number.
+"""
+def square_digits(n):
+    # Convert the number to a string to iterate through its digits
+    num_str = str(n)
 
+    # Initialize an empty string to store the squared digits
+    result_str = ""
+
+    # Iterate through the digits
+    for digit in num_str:
+        # Square the digit and convert it back to an integer
+        squared_digit = int(digit) ** 2
+
+        # Append the squared digit to the result string
+        result_str += str(squared_digit)
+
+    return int(result_str)
+
+print(square_digits(9119))
+print(square_digits(2483))
+print(square_digits(3212))
+"""
+
+# case 120 Create a function that sorts a list and removes all duplicate items from it.
+"""
+def setify(lst):
+    unique_set = set(sorted(lst))
+    # Convert the set back to a list and return it
+    return list(unique_set)
+
+print(setify([1, 3, 3, 5, 5]))
+print(setify([4, 4, 4, 4]))
+print(setify([5, 7, 8, 9, 10, 15]))
+print(setify([3, 3, 3, 2, 1]))
+"""
 
 
 
